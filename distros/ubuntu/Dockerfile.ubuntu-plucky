@@ -1,0 +1,31 @@
+FROM ubuntu:plucky
+
+RUN apt-get update && \
+	DEBIAN_FRONTEND=noninteractive apt-get install -y \
+		dpkg-dev \
+		git-buildpackage \
+		autoconf \
+		automake \
+		check \
+		debhelper-compat \
+		libcmocka-dev \
+		libfuse-dev \
+		libfuse3-dev \
+		libjpeg-dev \
+		libopus-dev \
+		libpam0g-dev \
+		libssl-dev \
+		libtool \
+		libx11-dev \
+		libxfixes-dev \
+		libxrandr-dev \
+		nasm \
+		openssl \
+		pkg-config \
+		systemd \
+		libepoxy-dev \
+		libgbm-dev \
+		x11-utils \
+		xserver-xorg-core \
+		xserver-xorg-dev \
+		systemd-dev

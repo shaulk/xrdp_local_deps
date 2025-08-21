@@ -4,7 +4,7 @@ Forwarded: https://github.com/neutrinolabs/xrdp/pull/467
 
 --- a/xrdp/Makefile.am
 +++ b/xrdp/Makefile.am
-@@ -21,7 +21,7 @@
+@@ -24,7 +24,7 @@
  if XRDP_RFXCODEC
  AM_CPPFLAGS += -DXRDP_RFXCODEC
  AM_CPPFLAGS += -I$(top_srcdir)/librfxcodec/include
@@ -12,4 +12,4 @@ Forwarded: https://github.com/neutrinolabs/xrdp/pull/467
 +XRDP_EXTRA_LIBS += $(top_builddir)/librfxcodec/src/.libs/librfxencode.la
  endif
  
- if XRDP_PIXMAN
+ if XRDP_X264

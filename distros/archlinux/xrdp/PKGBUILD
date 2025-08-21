@@ -6,17 +6,18 @@
 # Contributor: Mathias R. <pu154r@overlinux.org>
 # Contributor: Alan Beale <the.mrabz@gmail.com>
 
-pkgname=xrdp
+pkgname=xrdp-dmabuf
 pkgver=0.10.4.1
 pkgrel=1
 pkgdesc="An open source remote desktop protocol (RDP) server"
-url="https://github.com/neutrinolabs/xrdp"
+url="https://github.com/shaulk/xrdp"
 arch=(i686 x86_64 armv6h armv7l aarch64)
 license=('Apache-2.0')
 makedepends=('nasm' 'cmocka')
 depends=('libxrandr' 'libfdk-aac' 'ffmpeg' 'imlib2' 'fuse3' 'x264')
 checkdepends=('check')
 optdepends=('tigervnc' 'tightvnc' 'realvnc-vnc-server')
+conflicts=('xrdp')
 backup=('etc/xrdp/sesman.ini'
 	'etc/xrdp/xrdp.ini'
 	'etc/xrdp/cert.pem'
@@ -25,9 +26,9 @@ backup=('etc/xrdp/sesman.ini'
 	'etc/xrdp/reconnectwm.sh'
 	'etc/default/xrdp')
 install="${pkgname}.install"
-source=("https://github.com/neutrinolabs/xrdp/releases/download/v${pkgver//_/-}/xrdp-${pkgver//_/-}.tar.gz"
+source=("xrdp.tar.gz"
 	"arch-config.diff")
-sha256sums=('52eadf3e86c57be0de0b9d5c184b52a7946a070746d3eb04b5089dd6d42f8f5f'
+sha256sums=('SKIP'
             'e0ffce5b1a436990281fe2cc4a3cd9c2840a1dad99740aeaea866ccd9ef56db0')
 
 prepare() {

@@ -11,7 +11,7 @@ Index: xorgxrdp-0.10.0/module/rdpClientCon.c
 ===================================================================
 --- xorgxrdp-0.10.0.orig/module/rdpClientCon.c
 +++ xorgxrdp-0.10.0/module/rdpClientCon.c
-@@ -1552,7 +1552,7 @@ rdpClientConInit(rdpPtr dev)
+@@ -1676,7 +1676,7 @@ rdpClientConInit(rdpPtr dev)
                  return 0;
              }
          }
@@ -19,4 +19,4 @@ Index: xorgxrdp-0.10.0/module/rdpClientCon.c
 +        g_chmod_hex(socket_dir, 0x3777);
      }
  
-     errno = 0;
+     // Later versions of the X server removed the global display variable

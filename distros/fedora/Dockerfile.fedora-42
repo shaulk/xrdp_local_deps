@@ -1,0 +1,30 @@
+FROM fedora:42
+
+RUN dnf install -y \
+		rpm-build \
+        autoconf \
+        automake \
+        checkpolicy \
+        gcc \
+        imlib2-devel \
+        libX11-devel \
+        libXfixes-devel \
+        libXrandr-devel \
+        libtool \
+        make \
+        nasm \
+        noopenh264-devel \
+        openssl \
+        openssl-devel \
+        pam-devel \
+        fuse3-devel \
+        systemd-devel \
+        pixman-devel \
+        selinux-policy-devel \
+        systemd-rpm-macros \
+		libXfont2-devel \
+        libdrm-devel \
+        libepoxy-devel \
+        mesa-libgbm-devel \
+        xorg-x11-server-Xorg \
+        xorg-x11-server-devel

@@ -22,8 +22,8 @@
 Summary:   Open source remote desktop protocol (RDP) server
 Name:      xrdp
 Epoch:     1
-Version:   0.10.4
-Release:   3%{?dist}
+Version:   0.10.4.1
+Release:   1_dmabuf%{?dist}
 # Automatically converted from old format: ASL 2.0 and GPLv2+ and MIT - review is highly recommended.
 License:   Apache-2.0 AND GPL-2.0-or-later AND LicenseRef-Callaway-MIT
 URL:       http://www.xrdp.org/
@@ -44,7 +44,7 @@ Patch3:    xrdp-0.10.0-scripts-libexec.patch
 Patch4:    xrdp-0.9.6-script-interpreter.patch
 Patch5:    xrdp-0.9.16-arch.patch
 Patch6:    xrdp-0.9.18-vnc-uninit.patch
-Patch7:    xrdp-0.10.4-vmconnect.patch
+#Patch7:    xrdp-0.10.4-vmconnect.patch
 %if 0%{?fedora} >= 32 || 0%{?rhel} >= 8
 Patch8:    xrdp-0.10.2-sesman-ini.patch
 %endif
@@ -64,7 +64,7 @@ BuildRequires: pkgconfig(pixman-1)
 BuildRequires: pkgconfig(systemd)
 BuildRequires: nasm
 %if 0%{?fedora} || 0%{?rhel} > 8
-BuildRequires: noopenh264-devel
+BuildRequires: openh264-devel
 %endif
 
 BuildRequires: checkpolicy, selinux-policy-devel
@@ -352,6 +352,10 @@ fi
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
+* Thu Aug 21 2025 Shaul Kremer <shaulk@users.noreply.github.com> - 1:0.10.4.1-1_dmabuf
+- Update to 0.10.4.1.
+- Add DMA-BUF patches.
+
 * Fri Jul 25 2025 Fedora Release Engineering <releng@fedoraproject.org> - 1:0.10.4-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_43_Mass_Rebuild
 

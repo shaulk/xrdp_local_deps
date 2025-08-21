@@ -37,7 +37,7 @@ Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends:
  adduser,
- sysvinit-utils (>= 3.06-4),
+ sysvinit-utils (>= 3.01),
  ssl-cert,
  ${misc:Depends},
  ${shlibs:Depends},

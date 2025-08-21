@@ -1,0 +1,6 @@
+[submodule "xrdp"]
+	path = xrdp
+	url = https://github.com/shaulk/xrdp.git
+[submodule "xorgxrdp"]
+	path = xorgxrdp
+	url = https://github.com/shaulk/xorgxrdp.git
