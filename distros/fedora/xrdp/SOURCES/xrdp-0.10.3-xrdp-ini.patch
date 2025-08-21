@@ -1,0 +1,102 @@
+--- xrdp-0.10.3/xrdp/xrdp.ini.in.org	2025-04-01 21:11:30.997621951 +1100
++++ xrdp-0.10.3/xrdp/xrdp.ini.in	2025-04-01 21:13:18.881162132 +1100
+@@ -30,8 +30,8 @@ use_vsock=false
+ ; Unprivileged User name and group to run the xrdp daemon.
+ ; It is HIGHLY RECOMMENDED you set these values. See the xrdp.ini(5)
+ ; manpage for more information on setting and checking these.
+-#runtime_user=xrdp
+-#runtime_group=xrdp
++runtime_user=xrdp
++runtime_group=xrdp
+ 
+ ; regulate if the listening socket use socket option tcp_nodelay
+ ; no buffering will be performed in the TCP stack
+@@ -241,24 +241,24 @@ xrdpvr=true
+ ; Some session types such as Xorg and Xvnc start a display server.
+ ; Startup command-line parameters for the display server are configured
+ ; in sesman.ini. See and configure also sesman.ini.
+-[Xorg]
+-name=Xorg
+-lib=libxup.@lib_extension@
+-username=ask
+-password=ask
+-port=-1
+-code=20
++#[Xorg]
++#name=Xorg
++#lib=libxup.@lib_extension@
++#username=ask
++#password=ask
++#port=-1
++#code=20
+ ; Frame capture interval (milliseconds)
+-h264_frame_interval=16
+-rfx_frame_interval=32
+-normal_frame_interval=40
++#h264_frame_interval=16
++#rfx_frame_interval=32
++#normal_frame_interval=40
+ 
+ [Xvnc]
+ name=Xvnc
+ lib=libvnc.@lib_extension@
+ username=ask
+ password=ask
+-ip=127.0.0.1
++#ip=127.0.0.1
+ ; port is -1 (sesman controlled), numeric (TCP connection) or an
+ ; absolute path (UDS connection).
+ port=-1
+@@ -277,7 +277,7 @@ port=-1
+ ; VNC password files is no longer considered secure by FIPS
+ ;
+ ; The default value is 0 on non-FIPS systems, and 1 on FIPS-based systems.
+-#code=0
++code=1
+ #xserverbpp=24
+ #delay_ms=2000
+ ; Disable requested encodings to support buggy VNC servers
+@@ -287,13 +287,13 @@ port=-1
+ ; Generic VNC Proxy
+ ; Tailor this to specific hosts and VNC instances by specifying an ip
+ ; and port and setting a suitable name.
+-[vnc-any]
+-name=vnc-any
+-lib=libvnc.@lib_extension@
+-ip=ask
+-port=ask5900
+-username=na
+-password=ask
++#[vnc-any]
++#name=vnc-any
++#lib=libvnc.@lib_extension@
++#ip=ask
++#port=ask5900
++#username=na
++#password=ask
+ #pamusername=asksame
+ #pampassword=asksame
+ #delay_ms=2000
+@@ -310,15 +310,15 @@ password=ask
+ ; Generic RDP proxy using NeutrinoRDP
+ ; Tailor this to specific hosts by specifying an ip and port and setting
+ ; a suitable name.
+-[neutrinordp-any]
+-name=neutrinordp-any
++#[neutrinordp-any]
++#name=neutrinordp-any
+ ; To use this section, you should build xrdp with configure option
+ ; --enable-neutrinordp.
+-lib=libxrdpneutrinordp.@lib_extension@
+-ip=ask
+-port=ask3389
+-username=ask
+-password=ask
++#lib=libxrdpneutrinordp.@lib_extension@
++#ip=ask
++#port=ask3389
++#username=ask
++#password=ask
+ ; Uncomment the following lines to enable PAM authentication for proxy
+ ; connections.
+ #pamusername=ask

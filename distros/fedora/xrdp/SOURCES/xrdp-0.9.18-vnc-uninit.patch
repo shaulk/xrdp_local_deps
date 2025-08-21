@@ -1,0 +1,16 @@
+diff -ruN xrdp-0.9.14-v/vnc/vnc.c xrdp-0.9.14/vnc/vnc.c
+--- xrdp-0.9.14-v/vnc/vnc.c	2020-08-26 12:32:22.000000000 +1000
++++ xrdp-0.9.14/vnc/vnc.c	2020-09-01 18:16:37.404290027 +1000
+@@ -1272,9 +1272,9 @@
+     int srcy;
+     unsigned int encoding;
+     int pixel;
+-    int r;
+-    int g;
+-    int b;
++    int r = 0;
++    int g = 0;
++    int b = 0;
+     int error;
+     int need_size;
+     struct stream *s;

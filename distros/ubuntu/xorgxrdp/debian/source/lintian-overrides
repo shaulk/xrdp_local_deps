@@ -1,0 +1,5 @@
+# nothing to watch for, for now
+xorgxrdp source: debian-watch-does-not-check-gpg-signature
+
+# false positive: it’s compatibility glue
+xorgxrdp source: uses-deprecated-adttmp debian/tests/xorg (line 4)

@@ -1,0 +1,14 @@
+#%PAM-1.0
+# Generic Fedora config
+auth       include      password-auth
+account    include      password-auth
+password   include      password-auth
+session    include      password-auth
+session    required     pam_loginuid.so
+session    optional     pam_lastlog.so silent
+
+# Gnome specific Fedora config
+#auth       include      gdm-password
+#account    include      gdm-password
+#password   include      gdm-password
+#session    include      gdm-password

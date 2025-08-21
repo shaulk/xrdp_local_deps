@@ -1,0 +1,13 @@
+diff -ruNp xrdp-0.10.1-v/instfiles/xrdp-sesman.service.in xrdp-0.10.1/instfiles/xrdp-sesman.service.in
+--- xrdp-0.10.1-v/instfiles/xrdp-sesman.service.in	2024-07-31 22:55:03.000000000 +1000
++++ xrdp-0.10.1/instfiles/xrdp-sesman.service.in	2024-07-31 23:58:48.247323165 +1000
+@@ -1,7 +1,8 @@
+ [Unit]
+ Description=xrdp session manager
+ Documentation=man:xrdp-sesman(8) man:sesman.ini(5)
+-After=network.target
++Wants=network-online.target nss-lookup.target nss-user-lookup.target
++After=network-online.target nss-lookup.target nss-user-lookup.target
+ StopWhenUnneeded=true
+ BindsTo=xrdp.service
+ 

@@ -1,0 +1,4 @@
+/var/log/xrdp*.log {
+    missingok
+    copytruncate
+}

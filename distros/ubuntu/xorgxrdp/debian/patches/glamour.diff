@@ -1,0 +1,16 @@
+Description: Ensure dependency of xorgxrdp is present
+ If not, it fails the tests during building, but the glamour-enabled
+ xorgxrdp will need this always anyway
+Author: Thorsten Glaser <tg@debian.org>
+Forwarded: not-yet
+
+--- a/xrdpdev/xorg.conf
++++ b/xrdpdev/xorg.conf
+@@ -22,6 +22,7 @@
+     Load "int10"
+     Load "record"
+     Load "vbe"
++    Load "glamoregl"
+     Load "xorgxrdp"
+     Load "fb"
+ EndSection

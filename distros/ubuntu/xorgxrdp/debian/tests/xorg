@@ -1,0 +1,59 @@
+#!/bin/sh
+
+# work around sadt not honouring the latest DEP8
+test -n "$AUTOPKGTEST_TMP" || AUTOPKGTEST_TMP=${ADTTMP:-$TMPDIR}
+
+set -e
+# just to be safe
+test -n "$AUTOPKGTEST_TMP"
+
+set +e
+# mostly from tests/xorg-test-run.sh
+
+XCLIENT=xdpyinfo
+XORG_LOG=$AUTOPKGTEST_TMP/$TESTNAME-xorg.log
+XORG_OUT=$AUTOPKGTEST_TMP/$TESTNAME-xorg-out.log
+XORG_ERR=$AUTOPKGTEST_TMP/$TESTNAME-xorg-err.log
+XCLIENT_OUT=$AUTOPKGTEST_TMP/$TESTNAME-xclient-out.log
+TEST_DISPLAY=:20
+XORG_START_TIMEOUT=15 # might need to be adjusted arch-dependent
+
+/usr/lib/xorg/Xorg \
+    -config /etc/X11/xrdp/xorg.conf \
+    -logfile "$XORG_LOG" \
+    -novtswitch -sharevts -once -terminate -ac \
+    "$TEST_DISPLAY" >"$XORG_OUT" 2>"$XORG_ERR" </dev/null &
+
+# Record Xorg PID so it can be killed
+XORG_PID=$!
+
+# Wait for Xorg to start
+echo "Waiting ${XORG_START_TIMEOUT} seconds for Xorg to start"
+sleep $XORG_START_TIMEOUT
+
+echo "Running X client"
+$XCLIENT -display "$TEST_DISPLAY" >"$XCLIENT_OUT"
+CLIENT_RET=$?
+echo "Client error code: $CLIENT_RET"
+
+# Xorg would not exit if the client did not connect to it
+if test $CLIENT_RET != 0; then
+  echo "Killing X server (PID $XORG_PID)"
+  kill $XORG_PID
+  echo "Test failed"
+  exit 1
+fi
+
+# Wait for Xorg to stop
+wait $XORG_PID
+XORG_RET=$?
+echo "Xorg error code: $XORG_RET"
+
+# Succeed if Xorg returned code 0
+if test $XORG_RET = 0; then
+  echo "Test successful"
+  exit 0
+else
+  echo "Test failed"
+  exit 1
+fi

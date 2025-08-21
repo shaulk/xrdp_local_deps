@@ -1,0 +1,11 @@
+--- xrdp-0.10.2-rc.1/sesman/sesman.ini.in.org	2024-12-24 00:36:22.000000000 +1100
++++ xrdp-0.10.2-rc.1/sesman/sesman.ini.in	2024-12-24 07:06:20.309329448 +1100
+@@ -7,7 +7,7 @@ EnableUserWindowManager=true
+ ; Give in relative path to user's home directory
+ UserWindowManager=startwm.sh
+ ; Give in full path or relative path to @sesmansysconfdir@
+-DefaultWindowManager=startwm.sh
++DefaultWindowManager=startwm-bash.sh
+ ; Give in full path or relative path to @sesmansysconfdir@
+ ReconnectScript=reconnectwm.sh
+ 

@@ -1,0 +1,20 @@
+--- xrdp-0.10.2-rc.1/sesman/sesman.ini.in.org	2024-12-24 07:11:02.643702480 +1100
++++ xrdp-0.10.2-rc.1/sesman/sesman.ini.in	2024-12-24 07:12:42.372540720 +1100
+@@ -48,7 +48,7 @@ RestrictInboundClipboard=none
+ ; local sockets for the session are created.
+ ; This MUST be the same as runtime_group in xrdp.ini, or xrdp will not
+ ; be able to connect to your sessions.
+-#SessionSockdirGroup=xrdp
++SessionSockdirGroup=xrdp
+ 
+ 
+ [Sessions]
+@@ -143,7 +143,7 @@ EnableSyslog=true
+ ; CentOS 8              :  param=/usr/libexec/Xorg
+ ; FreeBSD (from 2022Q4) :  param=/usr/local/libexec/Xorg
+ ;
+-param=Xorg
++param=/usr/libexec/Xorg
+ ; Leave the rest parameters as-is unless you understand what will happen.
+ param=-config
+ param=xrdp/xorg.conf

@@ -1,0 +1,12 @@
+diff -ruN xrdp-0.9.16-v/common/arch.h xrdp-0.9.16/common/arch.h
+--- xrdp-0.9.16-v/common/arch.h	2021-04-30 22:12:07.000000000 +1000
++++ xrdp-0.9.16/common/arch.h	2021-05-01 09:38:05.008987725 +1000
+@@ -90,8 +90,6 @@
+       defined(__s390__) || defined (__s390x__) || \
+       defined(__riscv)
+ #define NO_NEED_ALIGN
+-#else
+-#warning unknown arch
+ #endif
+ #endif
+ 

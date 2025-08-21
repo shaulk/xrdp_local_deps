@@ -1,0 +1,2 @@
+Tests: xorg
+Depends: @, x11-utils, xserver-xorg-core

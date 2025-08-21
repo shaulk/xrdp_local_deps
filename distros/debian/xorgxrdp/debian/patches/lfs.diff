@@ -1,0 +1,23 @@
+From: Thorsten Glaser <tg@mirbsd.org>
+Subject: Enable Large File Support on (at least) 32-bit Linux
+Forwarded: https://github.com/neutrinolabs/xrdp/issues/647
+Reviewed-by: Dominik George <nik@naturalnet.de>
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -13,6 +13,8 @@
+ AM_INIT_AUTOMAKE([1.11 foreign parallel-tests])
+ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+ AC_PROG_CC
++AC_SYS_LARGEFILE
++AC_FUNC_FSEEKO
+ AC_C_CONST
+ AC_PROG_LIBTOOL
+ 
+@@ -94,5 +96,6 @@
+                  xrdpmouse/Makefile
+ ])
+ 
++CPPFLAGS="-include config_ac.h $CPPFLAGS"
+ AC_OUTPUT
+ 
